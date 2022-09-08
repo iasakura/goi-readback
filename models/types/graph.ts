@@ -203,7 +203,7 @@ export const termToGraph = (t: Term): Graph => {
       }
     });
     Object.keys(argGraph.freeVars).forEach((key) => {
-      if (!(key in argGraph)) {
+      if (!(key in funcGraph.freeVars)) {
         freeVars[key] = argGraph.freeVars[key];
       }
     });
