@@ -6,7 +6,7 @@
 "use strict";
 
 
-  import {Term} from '../../lambda';
+  import {Term} from '../../types/lambda';
 
 
 export interface IFilePosition {

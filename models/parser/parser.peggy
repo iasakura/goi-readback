@@ -1,5 +1,5 @@
 {{
-  import {Term} from '../../lambda';
+  import {Term} from '../../types/lambda';
 }}
 
 Lam
@@ -15,7 +15,7 @@ Lam
 App
   = f:Prim args:(_ x:Prim)+ {
       return args.reduce((acc: Term, x: [string, Term]) => {
-        return { type: 'app', term1: acc, term2: x[1] }
+        return { type: 'app', term1: acc, term2: x[1] } as Term
       }, f);
   } / p:Prim {
       return p;
@@ -23,9 +23,9 @@ App
 
 Prim
    = v:Var {
-       return {type: 'var', var: v }
+       return {type: 'var', var: v } as Term
    } / "(" _ e:Lam _ ")" {
-       return e;
+       return e as Term;
    }
 
 Var
